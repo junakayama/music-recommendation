@@ -21,9 +21,92 @@
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#itsComposedby -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#abrange -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#itsComposedby">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#abrange">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#pertenceA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#contem -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#contem">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#reune"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehCompostoPor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehCompostoPor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehFormadaPor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehFormadaPor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehProduzidoPor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehProduzidoPor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#produz"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#estaContidoEm -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#estaContidoEm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#fazParteDe -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#fazParteDe">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#pertenceA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#pertenceA">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#possui -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#possui">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#produz -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#produz">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#reune -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#reune">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -42,31 +125,66 @@
 
     <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Album -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Album"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Album">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehCompostoPor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Musica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#ehProduzidoPor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Artista"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Band -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Artista -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Band"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Artista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#possui"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Musica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#MusicArtist -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Estilo -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#MusicArtist"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Estilo"/>
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Song -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Genero -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Song"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Genero"/>
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Style -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Musica -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Style"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Musica">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#contem"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Estilo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#pertenceA"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Genero"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 
@@ -81,19 +199,160 @@
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Dark_Side_of_the_Moon -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#AC_DC -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Dark_Side_of_the_Moon">
-        <rdf:type rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Album"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#AC_DC"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Axe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Axe"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Bon_Jovi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Bon_Jovi"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Cazuza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Cazuza"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Eletronica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Eletronica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Elvis_Presley -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Elvis_Presley"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Funk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Funk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Genero"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Pink_Floyd -->
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Guns_N_Roses -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Pink_Floyd">
-        <rdf:type rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Band"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Guns_N_Roses"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Indie -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Indie"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Iron_Maiden -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Iron_Maiden"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#MPB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#MPB"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Metallica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Metallica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Nirvana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Nirvana"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Pop_Internacional -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Pop_Internacional">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#abrange"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Musica"/>
+            </owl:Restriction>
+        </rdf:type>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Pop_Nacional -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Pop_Nacional"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Queen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Queen"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Rap -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Rap"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Red_Hot_Chilli_Peppers -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Red_Hot_Chilli_Peppers"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Rock_Internacional -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Rock_Internacional">
+        <rdf:type rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Genero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Rock_Nacional -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Rock_Nacional"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Sertanejo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Sertanejo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#Genero"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#System_Of_A_Down -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#System_Of_A_Down"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#The_Beatles -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#The_Beatles"/>
+    
+
+
+    <!-- http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#The_Rolling_Stones -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/julia/ontologies/2018/3/MusicOntology#The_Rolling_Stones"/>
 </rdf:RDF>
 
 
