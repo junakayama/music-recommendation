@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Leon
@@ -13,6 +16,8 @@ public class Artista {
     
     private Integer id;
     private String name;
+    
+    private List<Musica> produz = new ArrayList<>();
 
     public Artista(Integer id, String name) {
         this.id = id;
@@ -36,6 +41,14 @@ public class Artista {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Musica> getProduz() {
+        return produz;
+    }
+
+    public void setProduz(List<Musica> produz) {
+        this.produz = produz;
     }
     
     

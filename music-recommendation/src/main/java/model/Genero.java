@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author Leon
@@ -14,6 +16,8 @@ public class Genero {
     private Integer id;
     private String name;
 
+    private List<Musica> abrange;
+    
     public Genero(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -36,7 +40,12 @@ public class Genero {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
-    
+
+    public List<Musica> getAbrange() {
+        return abrange;
+    }
+
+    public void setAbrange(List<Musica> abrange) {
+        this.abrange = abrange;
+    }
 }
