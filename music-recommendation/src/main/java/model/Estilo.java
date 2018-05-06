@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author Leon
@@ -14,6 +16,8 @@ public class Estilo {
     private Integer id;
     private String name;
 
+    private List<Musica> reune;
+    
     public Estilo(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -35,6 +39,14 @@ public class Estilo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Musica> getReune() {
+        return reune;
+    }
+
+    public void setReune(List<Musica> reune) {
+        this.reune = reune;
     }
     
     
