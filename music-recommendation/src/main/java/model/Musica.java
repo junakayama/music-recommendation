@@ -25,6 +25,10 @@ public class Musica {
         this.name = name;
     }
 
+    public Musica(String name) {
+        this.name = name;
+    }
+    
     public Musica(){}
     
     public Integer getId() {

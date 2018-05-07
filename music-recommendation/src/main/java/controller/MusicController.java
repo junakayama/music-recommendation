@@ -7,7 +7,13 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import model.Artista;
+import model.Estilo;
+import model.Genero;
 import model.Musica;
+import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 /**
  *
@@ -16,13 +22,10 @@ import model.Musica;
 public class MusicController {
     
     OWLController oWLController;
-    ArrayList<Musica> musicas = new ArrayList<>();
+    ArrayList<Musica> musicas;
 
     public MusicController() {
-    }
-    
-    public void populaMusicas(){
-        
+        this.musicas = new ArrayList<>();
     }
     
 }
