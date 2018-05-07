@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,11 +21,18 @@ public class Estilo {
     private List<Musica> reune;
     
     public Estilo(Integer id, String name) {
+        this.reune = new ArrayList<>();
         this.id = id;
         this.name = name;
     }
 
-    public Estilo(){}
+     public Estilo(String name) {
+        this.reune = new ArrayList<>();
+        this.name = name;
+    }
+    
+    public Estilo(){this.reune = new ArrayList<>();
+}
     
     public Integer getId() {
         return id;
@@ -49,6 +58,8 @@ public class Estilo {
         this.reune = reune;
     }
     
-    
+    public void addElement(Musica musica){
+        reune.add(musica);
+    }
     
 }

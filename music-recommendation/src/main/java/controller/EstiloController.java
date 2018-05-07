@@ -6,7 +6,10 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Set;
 import model.Estilo;
+import model.Musica;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 /**
  *
@@ -15,11 +18,10 @@ import model.Estilo;
 public class EstiloController {
     
     OWLController oWLController;
-    ArrayList<Estilo> musicas = new ArrayList<>();
+    ArrayList<Estilo> estilos;
 
     public EstiloController() {
+        this.estilos = new ArrayList<>();
     }
-    
-    
     
 }

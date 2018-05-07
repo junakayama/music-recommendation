@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,11 +20,18 @@ public class Genero {
     private List<Musica> abrange;
     
     public Genero(Integer id, String name) {
+        this.abrange = new ArrayList<>();
         this.id = id;
         this.name = name;
     }
 
-    public Genero(){}
+     public Genero(String name) {
+        this.abrange = new ArrayList<>();
+        this.name = name;
+    }
+    
+    public Genero(){this.abrange = new ArrayList<>();
+}
     
     public Integer getId() {
         return id;
@@ -48,4 +56,9 @@ public class Genero {
     public void setAbrange(List<Musica> abrange) {
         this.abrange = abrange;
     }
+    
+    public void addElement(Musica musica){
+        abrange.add(musica);
+    }
+    
 }

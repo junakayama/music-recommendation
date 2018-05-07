@@ -17,14 +17,21 @@ public class Artista {
     private Integer id;
     private String name;
     
-    private List<Musica> produz = new ArrayList<>();
+    private List<Musica> produz;
 
-    public Artista(Integer id, String name) {
+    public Artista(Integer id,String name) {
+        this.produz = new ArrayList<>();
         this.id = id;
+        this.name = name;
+    }
+
+    public Artista(String name) {
+        this.produz = new ArrayList<>();
         this.name = name;
     }
     
     public Artista(){
+        this.produz = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -51,7 +58,9 @@ public class Artista {
         this.produz = produz;
     }
     
-    
+    public void addElement(Musica musica){
+        produz.add(musica);
+    }
     
     
 }
