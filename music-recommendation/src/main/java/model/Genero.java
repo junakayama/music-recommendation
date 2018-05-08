@@ -16,8 +16,10 @@ public class Genero {
     
     private Integer id;
     private String name;
+    private int likeCount;
+    private int dislikeCount;
 
-    private List<Musica> abrange;
+    private List<Musica> abrange = new ArrayList<>();
     
     public Genero(Integer id, String name) {
         this.abrange = new ArrayList<>();
@@ -32,6 +34,14 @@ public class Genero {
     
     public Genero(){this.abrange = new ArrayList<>();
 }
+    
+    public void addLike(){
+        likeCount++;
+    }
+    
+    public void addDislike(){
+        likeCount--;
+    }
     
     public Integer getId() {
         return id;
@@ -59,6 +69,22 @@ public class Genero {
     
     public void addElement(Musica musica){
         abrange.add(musica);
+    }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public int getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public void setDislikeCount(int dislikeCount) {
+        this.dislikeCount = dislikeCount;
     }
     
 }

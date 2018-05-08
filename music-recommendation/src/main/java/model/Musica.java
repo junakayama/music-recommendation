@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,10 +16,14 @@ public class Musica {
     
     private Integer id;
     private String name;
+    private int likeCount;
+    private boolean liked = false;
+    private boolean disliked  = false;
+    private int dislikeCount;
     
-    private List<Artista> ehProduzidoPor;
-    private List<Genero> pertenceA;
-    private List<Estilo> fazParteDe;
+    private List<Artista> ehProduzidoPor = new ArrayList<>();
+    private List<Genero> pertenceA = new ArrayList<>();
+    private List<Estilo> fazParteDe = new ArrayList<>();
 
     public Musica(Integer id, String name) {
         this.id = id;
@@ -30,6 +35,30 @@ public class Musica {
     }
     
     public Musica(){}
+    
+    public void addLike(){
+        if(!liked){
+            getEhProduzidoPor().get(0).addLike();
+            getPertenceA().get(0).addLike();
+            List<Estilo> e = getFazParteDe();
+            for (Estilo estilo : e) {
+                estilo.addLike();
+            }
+            setLikeCount(getLikeCount()+3);
+        }
+    }
+    
+    public void addDislike(){
+       if(!disliked){
+            getEhProduzidoPor().get(0).addDislike();
+            getPertenceA().get(0).addDislike();
+            List<Estilo> e = getFazParteDe();
+            for (Estilo estilo : e) {
+                estilo.addDislike();
+            }
+            setLikeCount(getLikeCount()-3);
+        } 
+    }
     
     public Integer getId() {
         return id;
@@ -70,4 +99,55 @@ public class Musica {
     public void setFazParteDe(List<Estilo> fazParteDe) {
         this.fazParteDe = fazParteDe;
     }
+
+    public int getSumLike(){
+        int sum= 0;
+        List<Artista> a = getEhProduzidoPor();
+        List<Genero> g = getPertenceA();
+        List<Estilo> e = getFazParteDe();
+        
+        for (Artista artista : a) {
+            sum+=artista.getLikeCount();
+        }
+        for (Genero genero : g) {
+            sum+=genero.getLikeCount();
+        }
+        for (Estilo estilo : e) {
+                sum+=estilo.getLikeCount();
+        }
+        return sum;
+    }
+    
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public int getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public void setDislikeCount(int dislikeCount) {
+        this.dislikeCount = dislikeCount;
+    }
+
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
+
+    public boolean isDisliked() {
+        return disliked;
+    }
+
+    public void setDisliked(boolean disliked) {
+        this.disliked = disliked;
+    }
+    
 }
