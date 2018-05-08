@@ -6,6 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import model.Artista;
@@ -21,21 +22,34 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
  */
 public class MainController {
 
-    ArrayList<Musica> musicas;
-    ArrayList<Genero> generos;
-    ArrayList<Estilo> estilos;
-    ArrayList<Artista> artistas;
+    private ArrayList<Musica> musicas;
     
     public MainController() {
-        this.artistas = new ArrayList<>();
-        this.estilos = new ArrayList<>();
-        this.generos = new ArrayList<>();
         this.musicas = new ArrayList<>();
+    }
+    
+    public void likeMusic(Musica musica){
+        musica.addLike();
+        musica.setLiked(true);
+        sortMusicByLikes();
+    }
+    
+    public void dislikeMusic(Musica musica){
+        musica.addDislike();
+        musicas.remove(musica);
+        sortMusicByLikes();
+    }
+    
+    public void sortMusicByLikes(){
+        musicas.sort(Comparator.comparing(Musica::getLikeCount).reversed());
     }
     
     public void populaEntidades(OWLController oWLController){
         Set<OWLNamedIndividual> individuals = oWLController.getAllObjects("Musica");
         for (OWLNamedIndividual uni : individuals){
+            ArrayList<Artista> artistasTemp = new ArrayList<>();
+            ArrayList<Genero> generosTemp = new ArrayList<>();
+            ArrayList<Estilo> estilosTemp = new ArrayList<>();
             Musica musica = new Musica(musicas.size(),oWLController.getName(uni));
             
             List<OWLIndividual> ehProduzidoPor = oWLController.getObjectsByRelation("ehProduzidoPor", uni);
@@ -44,29 +58,36 @@ public class MainController {
             
             oWLController.printObject(uni);
             for (OWLIndividual oWLIndividual : ehProduzidoPor) {
-                Artista artista = new Artista(artistas.size(),oWLController.getName((OWLNamedIndividual)oWLIndividual));
+                Artista artista = new Artista(oWLController.getName((OWLNamedIndividual)oWLIndividual));
                 artista.getProduz().add(musica);
-                artistas.add(artista);
+                artistasTemp.add(artista);
                 oWLController.printRelation("ehProduzidoPor", oWLIndividual);
             }
             for (OWLIndividual oWLIndividual : fazParteDe) {
-                Estilo estilo = new Estilo(estilos.size(),oWLController.getName((OWLNamedIndividual)oWLIndividual));
+                Estilo estilo = new Estilo(oWLController.getName((OWLNamedIndividual)oWLIndividual));
                 estilo.getReune().add(musica);
-                estilos.add(estilo);
+                estilosTemp.add(estilo);
                 oWLController.printRelation("fazParteDe", oWLIndividual);
             }
             for (OWLIndividual oWLIndividual : pertenceA) {
-                Genero genero = new Genero(generos.size(),oWLController.getName((OWLNamedIndividual)oWLIndividual));
+                Genero genero = new Genero(oWLController.getName((OWLNamedIndividual)oWLIndividual));
                 genero.getAbrange().add(musica);
-                generos.add(genero);
+                generosTemp.add(genero);
                 oWLController.printRelation("pertenceA", oWLIndividual);
             }
             
-            musica.setEhProduzidoPor(artistas);
-            musica.setFazParteDe(estilos);
-            musica.setPertenceA(generos);
+            musica.setEhProduzidoPor(artistasTemp);
+            musica.setFazParteDe(estilosTemp);
+            musica.setPertenceA(generosTemp);
             musicas.add(musica);
         }
     }
-    
+
+    public ArrayList<Musica> getMusicas() {
+        return musicas;
+    }
+
+    public void setMusicas(ArrayList<Musica> musicas) {
+        this.musicas = musicas;
+    }    
 }

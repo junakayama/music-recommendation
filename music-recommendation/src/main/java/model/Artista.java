@@ -16,6 +16,8 @@ public class Artista {
     
     private Integer id;
     private String name;
+    private int likeCount;
+    private int dislikeCount;
     
     private List<Musica> produz;
 
@@ -34,6 +36,14 @@ public class Artista {
         this.produz = new ArrayList<>();
     }
 
+    public void addLike(){
+        likeCount++;
+    }
+    
+    public void addDislike(){
+        likeCount--;
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -60,6 +70,22 @@ public class Artista {
     
     public void addElement(Musica musica){
         produz.add(musica);
+    }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public int getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public void setDislikeCount(int dislikeCount) {
+        this.dislikeCount = dislikeCount;
     }
     
     

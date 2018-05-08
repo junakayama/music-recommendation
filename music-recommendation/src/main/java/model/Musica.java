@@ -15,6 +15,10 @@ public class Musica {
     
     private Integer id;
     private String name;
+    private int likeCount;
+    private boolean liked = false;
+    private boolean disliked  = false;
+    private int dislikeCount;
     
     private List<Artista> ehProduzidoPor;
     private List<Genero> pertenceA;
@@ -30,6 +34,30 @@ public class Musica {
     }
     
     public Musica(){}
+    
+    public void addLike(){
+        if(!liked){
+            getEhProduzidoPor().get(0).addLike();
+            getPertenceA().get(0).addLike();
+            List<Estilo> e = getFazParteDe();
+            for (Estilo estilo : e) {
+                estilo.addLike();
+            }
+            setLikeCount(getLikeCount()+3);
+        }
+    }
+    
+    public void addDislike(){
+       if(!disliked){
+            getEhProduzidoPor().get(0).addDislike();
+            getPertenceA().get(0).addDislike();
+            List<Estilo> e = getFazParteDe();
+            for (Estilo estilo : e) {
+                estilo.addDislike();
+            }
+            setLikeCount(getLikeCount()-3);
+        } 
+    }
     
     public Integer getId() {
         return id;
@@ -70,4 +98,37 @@ public class Musica {
     public void setFazParteDe(List<Estilo> fazParteDe) {
         this.fazParteDe = fazParteDe;
     }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public int getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public void setDislikeCount(int dislikeCount) {
+        this.dislikeCount = dislikeCount;
+    }
+
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
+
+    public boolean isDisliked() {
+        return disliked;
+    }
+
+    public void setDisliked(boolean disliked) {
+        this.disliked = disliked;
+    }
+    
 }
