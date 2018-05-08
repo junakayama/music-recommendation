@@ -20,7 +20,7 @@ public class Estilo {
     private int likeCount;
     private int dislikeCount;
 
-    private List<Musica> reune;
+    private List<Musica> reune = new ArrayList<>();
     
     public Estilo(Integer id, String name) {
         this.reune = new ArrayList<>();

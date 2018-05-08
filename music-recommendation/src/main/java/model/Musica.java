@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,9 +21,9 @@ public class Musica {
     private boolean disliked  = false;
     private int dislikeCount;
     
-    private List<Artista> ehProduzidoPor;
-    private List<Genero> pertenceA;
-    private List<Estilo> fazParteDe;
+    private List<Artista> ehProduzidoPor = new ArrayList<>();
+    private List<Genero> pertenceA = new ArrayList<>();
+    private List<Estilo> fazParteDe = new ArrayList<>();
 
     public Musica(Integer id, String name) {
         this.id = id;
@@ -99,6 +100,24 @@ public class Musica {
         this.fazParteDe = fazParteDe;
     }
 
+    public int getSumLike(){
+        int sum= 0;
+        List<Artista> a = getEhProduzidoPor();
+        List<Genero> g = getPertenceA();
+        List<Estilo> e = getFazParteDe();
+        
+        for (Artista artista : a) {
+            sum+=artista.getLikeCount();
+        }
+        for (Genero genero : g) {
+            sum+=genero.getLikeCount();
+        }
+        for (Estilo estilo : e) {
+                sum+=estilo.getLikeCount();
+        }
+        return sum;
+    }
+    
     public int getLikeCount() {
         return likeCount;
     }

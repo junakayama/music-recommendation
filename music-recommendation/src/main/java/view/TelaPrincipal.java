@@ -67,6 +67,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        recommendationList.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Musicas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         recommendationList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -83,7 +84,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +117,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(likeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(playButton, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addComponent(playButton, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(dislikeButton)
                 .addContainerGap())
@@ -266,14 +267,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DefaultListModel model = new DefaultListModel();
         recommendationList.setModel(model);
         for (Musica m : musicas) {
-            model.addElement(m);
+            model.addElement(m.getName());
         }
     }
     
     public void setLabelGroup(){
         musicLabel.setText(selectedMusic.getName());
         genderLabel.setText(selectedMusic.getPertenceA().get(0).getName());
-        styleLabel.setText(selectedMusic.getFazParteDe().get(0).getName());
+        String estilos = "";
+        for (Estilo estilo : selectedMusic.getFazParteDe()) {
+            estilos += estilo.getName()+", ";
+        }
+        styleLabel.setText(estilos);
         artistLabel.setText(selectedMusic.getEhProduzidoPor().get(0).getName());
     }
 

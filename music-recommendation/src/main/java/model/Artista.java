@@ -19,7 +19,7 @@ public class Artista {
     private int likeCount;
     private int dislikeCount;
     
-    private List<Musica> produz;
+    private List<Musica> produz = new ArrayList<>();
 
     public Artista(Integer id,String name) {
         this.produz = new ArrayList<>();

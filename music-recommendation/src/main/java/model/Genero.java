@@ -19,7 +19,7 @@ public class Genero {
     private int likeCount;
     private int dislikeCount;
 
-    private List<Musica> abrange;
+    private List<Musica> abrange = new ArrayList<>();
     
     public Genero(Integer id, String name) {
         this.abrange = new ArrayList<>();
